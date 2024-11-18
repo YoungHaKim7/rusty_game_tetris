@@ -1,18 +1,24 @@
-use std::error::Error;
-use std::sync::mpsc;
-use std::time::{Duration, Instant};
-use std::{io, thread};
+use std::{
+    error::Error,
+    sync::mpsc,
+    time::{Duration, Instant},
+    {io, thread},
+};
 
-use crossterm::cursor::{Hide, Show};
-use crossterm::event::{Event, KeyCode};
-use crossterm::terminal::{EnterAlternateScreen, LeaveAlternateScreen};
-use crossterm::{event, terminal, ExecutableCommand};
+use crossterm::{
+    cursor::{Hide, Show},
+    event::{Event, KeyCode},
+    terminal::{EnterAlternateScreen, LeaveAlternateScreen},
+    {event, terminal, ExecutableCommand},
+};
 use rusty_audio::Audio;
 
 use board::Board;
 
-use crate::frame::{new_frame, Drawable};
-use crate::score_board::ScoreBoard;
+use crate::{
+    frame::{new_frame, Drawable},
+    score_board::ScoreBoard,
+};
 
 mod block;
 mod board;
