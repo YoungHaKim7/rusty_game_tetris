@@ -31,13 +31,18 @@ impl ScoreBoard {
                 _ => self.score += 100,
             }
         }
-        if lines > 0 {
-            if self.total_lines % 10 == 0 {
-                self.inc_level();
-                return true;
-            }
+        if lines > 0 && self.total_lines % 10 == 0 {
+            self.inc_level();
+            return true;
         }
         false
+        // if lines > 0 {
+        //     if self.total_lines % 10 == 0 {
+        //         self.inc_level();
+        //         return true;
+        //     }
+        // }
+        // false
     }
 
     fn inc_level(&mut self) {

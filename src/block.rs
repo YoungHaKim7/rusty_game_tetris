@@ -1,5 +1,4 @@
-use rand::rngs::OsRng;
-use rand::RngCore;
+use rand::{rngs::OsRng, RngCore};
 
 use crate::frame::{O, PIXEL_SIZE, X, Y};
 

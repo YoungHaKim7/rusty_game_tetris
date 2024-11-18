@@ -111,7 +111,7 @@ impl Board {
                 for (sy, row) in block.get_current_frame().iter().enumerate() {
                     for (sx, pixel) in row.iter().enumerate() {
                         // if the row has a pixel and the grid is already taken we get a collision
-                        if pixel.eq(&X) && self.grid[sy + y + 1][sx + x] == true {
+                        if pixel.eq(&X) && self.grid[sy + y + 1][sx + x] {
                             return true;
                         }
                     }
@@ -124,7 +124,7 @@ impl Board {
                 for (sy, row) in block.get_current_frame().iter().enumerate() {
                     for (sx, pixel) in row.iter().enumerate() {
                         // if the row has a pixel and the grid is already taken we get a collision
-                        if pixel.eq(&X) && self.grid[sy + y][sx + x - 1] == true {
+                        if pixel.eq(&X) && self.grid[sy + y][sx + x - 1] {
                             return true;
                         }
                     }
@@ -137,7 +137,7 @@ impl Board {
                 for (sy, row) in block.get_current_frame().iter().enumerate() {
                     for (sx, pixel) in row.iter().enumerate() {
                         // if the row has a pixel and the grid is already taken we get a collision
-                        if pixel.eq(&X) && self.grid[sy + y][sx + x + 1] == true {
+                        if pixel.eq(&X) && self.grid[sy + y][sx + x + 1] {
                             return true;
                         }
                     }
@@ -206,7 +206,7 @@ impl Board {
         let mut count: usize = 0;
         let grid = self.grid.clone();
         for (index, row) in grid.iter().enumerate() {
-            if row.iter().filter(|v| **v == true).count() == row.len() {
+            if row.iter().filter(|v| **v).count() == row.len() {
                 self.grid.remove(index);
                 self.grid.insert(0, vec![false; BOARD_NUM_COLS]);
                 count += 1;
@@ -232,7 +232,7 @@ impl Drawable for Board {
             // draw memory map
             for (y, row) in self.grid.iter().enumerate() {
                 for (x, v) in row.iter().enumerate() {
-                    if *v == true {
+                    if *v {
                         frame[x + self.top_x + BOARD_NUM_ROWS + 10][y + self.top_y] = X;
                     } else {
                         frame[x + self.top_x + BOARD_NUM_ROWS + 10][y + self.top_y] = O;
@@ -244,7 +244,7 @@ impl Drawable for Board {
         // draw all blocks
         for (y, row) in self.grid.iter().enumerate() {
             for (x, v) in row.iter().enumerate() {
-                if *v == true {
+                if *v {
                     frame[x + self.top_x + BORDER_SIZE][y + self.top_y] =
                         if x % 2 == 0 { X } else { Y };
                 } else {

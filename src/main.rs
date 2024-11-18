@@ -1,12 +1,13 @@
+use std::error::Error;
+use std::sync::mpsc;
+use std::time::{Duration, Instant};
+use std::{io, thread};
+
 use crossterm::cursor::{Hide, Show};
 use crossterm::event::{Event, KeyCode};
 use crossterm::terminal::{EnterAlternateScreen, LeaveAlternateScreen};
 use crossterm::{event, terminal, ExecutableCommand};
 use rusty_audio::Audio;
-use std::error::Error;
-use std::sync::mpsc;
-use std::time::{Duration, Instant};
-use std::{io, thread};
 
 use board::Board;
 
@@ -19,13 +20,13 @@ mod frame;
 mod render;
 mod score_board;
 
-pub const SCREEN_NUM_ROWS: usize = 84;
-pub const SCREEN_NUM_COLS: usize = 120;
+pub const SCREEN_NUM_ROWS: usize = 74;
+pub const SCREEN_NUM_COLS: usize = 90;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let mut audio = Audio::new();
     for item in &["lose", "line", "rotate", "drop", "level_up"] {
-        audio.add(item, &format!("assets/audio/{}.wav", item));
+        audio.add(item, format!("assets/audio/{}.wav", item));
     }
 
     // Terminal
@@ -40,7 +41,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let mut last_frame = new_frame();
         let mut stdout = io::stdout();
         render::render(&mut stdout, &last_frame, &last_frame, true);
-        loop {
+        while let Ok(_x) = render_rx.recv() {
             let curr_frame = match render_rx.recv() {
                 Ok(x) => x,
                 Err(_) => break,
@@ -48,6 +49,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             render::render(&mut stdout, &last_frame, &curr_frame, false);
             last_frame = curr_frame;
         }
+        // loop {
+        // }
     });
     let mut board = Board::new(false); // pass true to display the memory map of the board
     let mut score_board =
