@@ -10,7 +10,7 @@ cargo run
 |-|-|
 |rotate |arrow up (↑)|
 |left or right | ( ⃖)  or ( ⃗) |
-|Drop a block quickly | space or arrow down (↓) |
+|Drop a block quickly | space (⨆ ) or arrow down (↓) |
 |-|-|
 |exit game| ESC |
 
