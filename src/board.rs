@@ -278,5 +278,11 @@ impl Drawable for Board {
             self.top_x + BORDER_SIZE + BOARD_NUM_COLS + 5,
             self.top_y + 2,
         );
+        draw_text(
+            frame,
+            "Key   <- left , -> right  / 'space' or 'up' rotate  ",
+            self.top_x + BORDER_SIZE + BOARD_NUM_COLS + 5,
+            self.top_y + 10,
+        );
     }
 }

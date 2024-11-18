@@ -19,8 +19,8 @@ mod frame;
 mod render;
 mod score_board;
 
-pub const SCREEN_NUM_ROWS: usize = 42;
-pub const SCREEN_NUM_COLS: usize = 60;
+pub const SCREEN_NUM_ROWS: usize = 84;
+pub const SCREEN_NUM_COLS: usize = 120;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let mut audio = Audio::new();
