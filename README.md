@@ -1,9 +1,12 @@
 # rusty_game_tetris
 
+```
+cargo run
+```
 
 # key
 
-|||
+||key|
 |-|-|
 |rotate |arrow up (↑)|
 |left or right | ( ⃖)  or ( ⃗) |
