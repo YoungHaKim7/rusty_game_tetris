@@ -74,7 +74,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                         board.move_block_right();
                     }
                     KeyCode::Char(' ') => {
-                        board.fast_move_block_down();
+                        board.speed_up();
                     }
                     KeyCode::Up => {
                         audio.play("rotate");

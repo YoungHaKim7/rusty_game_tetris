@@ -46,11 +46,6 @@ impl Board {
         self.move_timer = Timer::new(Duration::from_millis(0));
     }
 
-    pub fn fast_move_block_down(&mut self) -> bool {
-        self.move_timer = Timer::new(Duration::from_millis(0));
-        return false;
-    }
-
     pub fn increase_speed(&mut self) {
         if self.current_speed > 200 {
             self.current_speed -= SPEED_DELTA;
@@ -280,9 +275,21 @@ impl Drawable for Board {
         );
         draw_text(
             frame,
-            "Key   <- left , -> right  / 'space' or 'up' rotate  ",
+            "Key   <- left , -> right  / 'up' rotate  ",
             self.top_x + BORDER_SIZE + BOARD_NUM_COLS + 5,
             self.top_y + 10,
+        );
+        draw_text(
+            frame,
+            "press space key or 'down' -> speed up",
+            self.top_x + BORDER_SIZE + BOARD_NUM_COLS + 5,
+            self.top_y + 13,
+        );
+        draw_text(
+            frame,
+            "esc -> Exit or quit",
+            self.top_x + BORDER_SIZE + BOARD_NUM_COLS + 5,
+            self.top_y + 16,
         );
     }
 }
