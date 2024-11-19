@@ -4,6 +4,16 @@
 cargo run
 ```
 
+# Install(linux OS)
+
+```bash
+$ sudo apt update && sudo apt upgrade
+
+$ sudo apt-get install -y libasound2-dev libwebkit2gtk-4.0 
+```
+
+
+
 # key
 
 ||key|
