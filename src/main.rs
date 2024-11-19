@@ -35,6 +35,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         audio.add(item, format!("assets/audio/{}.wav", item));
     }
 
+    let mut audio_background_music = Audio::new();
+    for item in &["8bit_music_for_game_68698"] {
+        audio_background_music.add(item, format!("assets/audio/{}.mp3", item));
+    }
+
     // Terminal
     let mut stdout = io::stdout();
     terminal::enable_raw_mode()?;
@@ -67,6 +72,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let delta = instant.elapsed();
         instant = Instant::now();
         let mut curr_frame = new_frame();
+        audio_background_music.play("8bit_music_for_game_68698");
 
         // Input handlers for the game
         while event::poll(Duration::default())? {
