@@ -17,3 +17,4 @@ cargo run
 
 # Original code
 - https://github.com/madchicken/rust-tetris
+- https://github.com/P-Asta/rust-tetris
