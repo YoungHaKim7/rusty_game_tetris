@@ -8,9 +8,9 @@ cargo run
 
 ||key|
 |-|-|
-|rotate |arrow up (↑)|
-|left or right | ( ⃖)  or ( ⃗) |
-|Drop a block quickly | space (⨆ ) or arrow down (↓) |
+|rotate |arrow up ( ↑ )|
+|left or right | ( ← )  or ( → ) |
+|Drop a block quickly | space ( ␣ ) or arrow down (↓) |
 |-|-|
 |exit game| ESC |
 
