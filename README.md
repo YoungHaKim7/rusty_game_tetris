@@ -28,5 +28,6 @@ $ sudo apt-get install -y libasound2-dev libwebkit2gtk-4.0
 # Original code
 - https://github.com/madchicken/rust-tetris
 - https://github.com/P-Asta/rust-tetris
+- https://github.com/jesper-olsen/Unictris
 - Bevy Game
   - https://github.com/YoungHaKim7/rust_bevy_tetris
