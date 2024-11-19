@@ -18,4 +18,5 @@ cargo run
 # Original code
 - https://github.com/madchicken/rust-tetris
 - https://github.com/P-Asta/rust-tetris
-- https://github.com/YoungHaKim7/rust_bevy_tetris
+- Bevy Game
+  - https://github.com/YoungHaKim7/rust_bevy_tetris
